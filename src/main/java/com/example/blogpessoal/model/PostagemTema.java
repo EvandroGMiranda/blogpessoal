@@ -9,7 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name = "tb_temas")
@@ -23,7 +24,7 @@ public class PostagemTema {
 		private String descricao;
 		
 		@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
-		@JsonIncludeProperties("tema")
+		@JsonIgnoreProperties("tema")
 		private List<PostagemModel> postagem;
 
 		public Long getId() {
