@@ -26,16 +26,16 @@ import com.example.blogpessoal.repository.TemaRepository;
 	public class TemaController {
 	    
 	    @Autowired
-	    private TemaRepository temaRepository;
+	    private TemaRepository repository;
 	    
 	    @GetMapping
 	    public ResponseEntity<List<PostagemTema>> getAll(){
-	        return ResponseEntity.ok(temaRepository.findAll());
+	        return ResponseEntity.ok(repository.findAll());
 	    }
 	    
 	    @GetMapping("/{id}")
 	    public ResponseEntity<PostagemTema> getById(@PathVariable Long id){
-	        return temaRepository.findById(id)
+	        return repository.findById(id)
 	            .map(resposta -> ResponseEntity.ok(resposta))
 	            .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	    }
@@ -43,33 +43,33 @@ import com.example.blogpessoal.repository.TemaRepository;
 	    @GetMapping("/descricao/{descricao}")
 	    public ResponseEntity<List<PostagemTema>> getByTitle(@PathVariable 
 	    String descricao){
-	        return ResponseEntity.ok(temaRepository
+	        return ResponseEntity.ok(repository
 	            .findAllByDescricaoContainingIgnoreCase(descricao));
 	    }
 	    
 	    @PostMapping
 	    public ResponseEntity<PostagemTema> post(@Valid @RequestBody PostagemTema tema){
 	        return ResponseEntity.status(HttpStatus.CREATED)
-	                .body(temaRepository.save(tema));
+	                .body(repository.save(tema));
 	    }
 	    
 	    @PutMapping
 	    public ResponseEntity<PostagemTema> put(@Valid @RequestBody PostagemTema tema){
-	        return temaRepository.findById(tema.getId())
+	        return repository.findById(tema.getId())
 	            .map(resposta -> ResponseEntity.status(HttpStatus.CREATED)
-	            .body(temaRepository.save(tema)))
+	            .body(repository.save(tema)))
 	            .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	    }
 	    
 	    @ResponseStatus(HttpStatus.NO_CONTENT)
 	    @DeleteMapping("/{id}")
 	    public void delete(@PathVariable Long id) {
-	        Optional<PostagemTema> tema = temaRepository.findById(id);
+	        Optional<PostagemTema> tema = repository.findById(id);
 	        
 	        if(tema.isEmpty())
 	            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 	        
-	        temaRepository.deleteById(id);              
+	        repository.deleteById(id);              
 	    }
 
 	}
