@@ -1,4 +1,4 @@
-package com.example.blogpessoal.model;
+package com.generation.blogpessoal.model;
 
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
+
 @Entity
 @Table(name = "tb_temas")
 public class PostagemTema {
@@ -19,6 +21,7 @@ public class PostagemTema {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	
 	@NotNull(message = "O Atributo Descrição é obrigatório")
 	private String descricao;
 

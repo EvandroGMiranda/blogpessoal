@@ -1,4 +1,4 @@
-package com.example.blogpessoal.model;
+package com.generation.blogpessoal.model;
 
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+@Schema(example = "email@email.com.br")
 @Entity
 @Table(name = "tb_usuario")
 public class SegurancaModel {

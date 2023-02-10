@@ -1,4 +1,4 @@
-package com.example.blogpessoal.service;
+package com.generation.blogpessoal.service;
 
 import java.nio.charset.Charset;
 import java.util.Optional;
@@ -8,8 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import com.example.blogpessoal.model.UsuarioLoginModel;
-import com.example.blogpessoal.repository.SegurancaRepository;
+
+import com.generation.blogpessoal.model.UsuarioLoginModel;
+import com.generation.blogpessoal.repository.SegurancaRepository;
 
 @Service
 public class UsuarioService {

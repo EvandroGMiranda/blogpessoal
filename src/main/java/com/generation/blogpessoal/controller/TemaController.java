@@ -1,4 +1,4 @@
-package com.example.blogpessoal.controller;
+package com.generation.blogpessoal.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import com.example.blogpessoal.model.PostagemTema;
-import com.example.blogpessoal.repository.TemaRepository;
+
+import com.generation.blogpessoal.model.PostagemTema;
+import com.generation.blogpessoal.repository.TemaRepository;
 
 @RestController
 	@RequestMapping("/temas")

@@ -1,4 +1,4 @@
-package com.example.blogpessoal.model;
+package com.generation.blogpessoal.model;
 
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
